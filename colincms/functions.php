@@ -5,6 +5,7 @@
 // error_reporting(E_ALL);
 
 include_once(dirname(__FILE__).'/data.php');
+include_once(dirname(__FILE__).'/editors.php');
 
 add_filter('use_block_editor_for_post', '__return_false', 10); 
 
