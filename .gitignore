@@ -1,2 +1,4 @@
 colincms/page-*
 colincms/config.php
+.DS_Store
+*/.DS_Store
