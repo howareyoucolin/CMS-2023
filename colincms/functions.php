@@ -6,11 +6,20 @@
 
 include_once(dirname(__FILE__).'/data.php');
 include_once(dirname(__FILE__).'/editors.php');
+include_once(dirname(__FILE__).'/config.php');
 
 add_filter('use_block_editor_for_post', '__return_false', 10); 
 
+function get_siteurl_associate_to_post_id($post_id){
+  foreach(RULES as $rule){
+      if($rule['id']==$post_id) return $rule['siteurl'];
+  }
+  die('error in func get_siteurl_associate_to_post_id!');
+}
+
 function ping_website($post_id){
 	$data = get_website_data();
+  $siteurl = get_siteurl_associate_to_post_id($post_id);
 
 	$post = [
 	    'token' => 'FatfatEatShit',
@@ -18,7 +27,7 @@ function ping_website($post_id){
 	];
 
 	$ch = curl_init();
-	curl_setopt($ch, CURLOPT_URL,"http://www.wangzubeauty.com/receptor/index.php");
+	curl_setopt($ch, CURLOPT_URL,"$siteurl/receptor/index.php");
 	curl_setopt($ch, CURLOPT_POST, 1);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 	curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
