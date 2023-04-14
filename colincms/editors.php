@@ -10,7 +10,7 @@ if(is_user_logged_in()){
 	$username = wp_get_current_user()->data->user_login;
     $roles = ( array ) wp_get_current_user()->roles;
 
-    if(in_array('editor', $roles)){
+    if(!str_starts_with($username, 'manager') && in_array('editor', $roles)){
 		function editor_custom_css() {
 		  echo '<style>
 		    #wpadminbar, #adminmenu li:not(.editor-info), #screen-meta-links, 
