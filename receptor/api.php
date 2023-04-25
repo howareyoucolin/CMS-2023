@@ -25,3 +25,14 @@ function __($source, $length=20){
 		echo $website_data->{$source};
 	}
 }
+
+function get_posts(){
+	try{
+		$data = file_get_contents(dirname(__FILE__).'/posts.json');
+		$post_data = json_decode($data);
+	}
+	catch(Exception $ex){
+		return false;
+	}
+	return $post_data;
+}
