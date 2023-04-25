@@ -5,8 +5,9 @@
 // error_reporting(E_ALL);
 
 include_once(dirname(__FILE__).'/data.php');
-include_once(dirname(__FILE__).'/editors.php');
+// include_once(dirname(__FILE__).'/editors.php'); //Disable when use blog
 include_once(dirname(__FILE__).'/config.php');
+include_once(dirname(__FILE__).'/function-posts.php'); //Enable when use blog
 
 add_filter('use_block_editor_for_post', '__return_false', 10); 
 
