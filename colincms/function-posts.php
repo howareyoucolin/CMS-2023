@@ -14,7 +14,9 @@ function _save_posts_ping_website($post_id){
     "posts" => (object) array()
   );
   $keys = array();
-	$posts = get_posts();
+	$posts = get_posts(array(
+  'numberposts' => -1,
+ ));
   if(is_array($posts)){
     foreach($posts as $p){
       $keys[] = (object) array(
