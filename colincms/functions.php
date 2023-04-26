@@ -9,7 +9,13 @@ include_once(dirname(__FILE__).'/data.php');
 include_once(dirname(__FILE__).'/config.php');
 include_once(dirname(__FILE__).'/function-posts.php'); //Enable when use blog
 
-add_filter('use_block_editor_for_post', '__return_false', 10); 
+// Use new editor on post type.
+function isPageEdit(){
+  return isset($_GET['post']) && get_post_type($_GET['post']) == 'page';
+}
+if(isPageEdit()){
+  add_filter('use_block_editor_for_post', '__return_false', 10); 
+}
 
 function get_siteurl_associate_to_post_id($post_id){
   foreach(RULES as $rule){

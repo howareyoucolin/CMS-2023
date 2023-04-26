@@ -30,18 +30,18 @@ if(is_user_logged_in()){
 		}
 		add_action( 'adminmenu', 'se26675378_adminmenu' );
     
-		if(!($pagenow === 'admin-ajax.php' || $pagenow === 'async-upload.php' || $pagenow === 'wp-login.php')){
-			$matched=false;
-			foreach(RULES as $rule):
-				if(str_starts_with($username, $rule['prefix'])){
-					$matched=true;
-					if(!($pagenow == 'post.php' && $postid == $rule['id'] && $action == 'edit')){
-						header("Location:".HOSTNAME."/wp-admin/post.php?post=10&action=edit");
-					}
-				}
-			endforeach;
-			if(!$matched) die('Access Denied!');
-		}
+		// if(!($pagenow === 'admin-ajax.php' || $pagenow === 'async-upload.php' || $pagenow === 'wp-login.php')){
+		// 	$matched=false;
+		// 	foreach(RULES as $rule):
+		// 		if(str_starts_with($username, $rule['prefix'])){
+		// 			$matched=true;
+		// 			if(!($pagenow == 'post.php' && $postid == $rule['id'] && $action == 'edit')){
+		// 				header("Location:".HOSTNAME."/wp-admin/post.php?post=10&action=edit");
+		// 			}
+		// 		}
+		// 	endforeach;
+		// 	if(!$matched) die('Access Denied!');
+		// }
 
 	}
 }
