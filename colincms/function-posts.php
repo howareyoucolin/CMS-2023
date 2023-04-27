@@ -28,6 +28,7 @@ function _save_posts_ping_website($post_id){
         "post_date" => $p->post_date,
         "post_content"=> $p->post_content,
         "post_title"=> $p->post_title,
+        "modified_date" => $p->post_modified,
         // 'x' => $p
       );
     }
