@@ -29,6 +29,7 @@ function _save_posts_ping_website($post_id){
         "post_content"=> $p->post_content,
         "post_title"=> $p->post_title,
         "modified_date" => $p->post_modified,
+        "post_excerpt" => empty($p->post_excerpt) ? wp_trim_words($p->post_content, 55, '...') : $p->post_excerpt,
         // 'x' => $p
       );
     }
